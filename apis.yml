@@ -7,12 +7,12 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Standards
-  - Scientific Data
-  - Research
   - Cybersecurity
   - Government
   - Measurements
+  - Research
+  - Scientific Data
+  - Standards
 url: https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-03-16'
@@ -26,10 +26,10 @@ apis:
     humanURL: https://nvd.nist.gov/developers
     baseURL: https://services.nvd.nist.gov/rest/json
     tags:
-      - Security
-      - Vulnerabilities
       - CVE
       - Cybersecurity
+      - Security
+      - Vulnerabilities
     properties:
       - type: Documentation
         url: https://nvd.nist.gov/developers/vulnerabilities
@@ -43,8 +43,8 @@ apis:
     baseURL: https://webbook.nist.gov/cgi
     tags:
       - Chemistry
-      - Scientific Data
       - Physical Properties
+      - Scientific Data
     properties:
       - type: Documentation
         url: https://webbook.nist.gov/chemistry/form-ser/
@@ -55,9 +55,9 @@ apis:
     humanURL: https://data.nist.gov
     baseURL: https://data.nist.gov
     tags:
+      - Open Data
       - Research Data
       - Scientific Data
-      - Open Data
     properties:
       - type: Documentation
         url: https://data.nist.gov/sdp/#/
@@ -67,9 +67,9 @@ apis:
       Provides access to official NIST time services for time synchronization.
     humanURL: https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
     tags:
-      - Time
-      - Synchronization
       - Standards
+      - Synchronization
+      - Time
     properties:
       - type: Documentation
         url: https://tf.nist.gov/tf-cgi/servers.cgi
