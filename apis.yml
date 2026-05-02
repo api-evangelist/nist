@@ -1,9 +1,9 @@
 aid: nist
 name: National Institute of Standards and Technology (NIST)
 description: >-
-  APIs provided by the National Institute of Standards and Technology for accessing
-  scientific and technical data, standards, and research information including
-  vulnerability databases, chemistry data, and time services.
+  APIs provided by the National Institute of Standards and Technology for
+  accessing scientific and technical data, standards, and research information
+  including vulnerability databases, chemistry data, and time services.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -15,7 +15,7 @@ tags:
   - Standards
 url: https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-03-16'
+modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
   - aid: nist:nist-nvd-api
@@ -35,10 +35,13 @@ apis:
         url: https://nvd.nist.gov/developers/vulnerabilities
       - type: Authentication
         url: https://nvd.nist.gov/developers/request-an-api-key
+      - type: OpenAPI
+        url: https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/openapi/nist-nvd-cve-openapi.yml
   - aid: nist:nist-chemistry-webbook-api
     name: NIST Chemistry WebBook API
     description: >-
-      Access to chemical and physical property data for thousands of chemical species.
+      Access to chemical and physical property data for thousands of chemical
+      species.
     humanURL: https://webbook.nist.gov/chemistry/
     baseURL: https://webbook.nist.gov/cgi
     tags:
@@ -51,7 +54,8 @@ apis:
   - aid: nist:nist-data-gateway
     name: NIST Data Gateway
     description: >-
-      Provides access to NIST's scientific and technical databases across multiple domains.
+      Provides access to NIST's scientific and technical databases across
+      multiple domains.
     humanURL: https://data.nist.gov
     baseURL: https://data.nist.gov
     tags:
