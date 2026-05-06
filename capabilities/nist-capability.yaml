@@ -1,0 +1,226 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: NIST NVD CVE API
+  description: The National Vulnerability Database (NVD) CVE API provides programmatic access to CVE records, CVSS metrics,
+    weakness (CWE) data, and configuration information for security vulnerabilities.
+  tags:
+  - Nist
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: nist
+    baseUri: https://services.nvd.nist.gov/rest/json
+    description: NIST NVD CVE API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: apiKey
+      value: '{{NIST_TOKEN}}'
+    resources:
+    - name: cves-2-0
+      path: /cves/2.0
+      operations:
+      - name: getcves
+        method: GET
+        description: Search CVE records
+        inputParameters:
+        - name: cveId
+          in: query
+          type: string
+          description: Returns a single CVE record by its CVE identifier.
+        - name: cpeName
+          in: query
+          type: string
+          description: Returns CVE records associated with the supplied CPE 2.3 name.
+        - name: cvssV3Severity
+          in: query
+          type: string
+          description: Filter results by CVSS v3 qualitative severity rating.
+        - name: keywordSearch
+          in: query
+          type: string
+          description: Returns CVE records where the description contains the keyword.
+        - name: pubStartDate
+          in: query
+          type: string
+          description: Filter by CVE publish start date (ISO 8601).
+        - name: pubEndDate
+          in: query
+          type: string
+          description: Filter by CVE publish end date (ISO 8601).
+        - name: lastModStartDate
+          in: query
+          type: string
+          description: Filter by last modified start date (ISO 8601).
+        - name: lastModEndDate
+          in: query
+          type: string
+          description: Filter by last modified end date (ISO 8601).
+        - name: resultsPerPage
+          in: query
+          type: integer
+          description: Number of CVE records to return per page (max 2000).
+        - name: startIndex
+          in: query
+          type: integer
+          description: Zero-based offset into the result set.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: cvehistory-2-0
+      path: /cvehistory/2.0
+      operations:
+      - name: getcvehistory
+        method: GET
+        description: Retrieve CVE change history
+        inputParameters:
+        - name: cveId
+          in: query
+          type: string
+          description: Returns the change history for a single CVE.
+        - name: changeStartDate
+          in: query
+          type: string
+          description: Filter changes that occurred on or after this date (ISO 8601).
+        - name: changeEndDate
+          in: query
+          type: string
+          description: Filter changes that occurred on or before this date (ISO 8601).
+        - name: resultsPerPage
+          in: query
+          type: integer
+          description: Number of change records to return per page (max 5000).
+        - name: startIndex
+          in: query
+          type: integer
+          description: Zero-based offset into the result set.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: nist-rest
+    description: REST adapter for NIST NVD CVE API.
+    resources:
+    - path: /cves/2.0
+      name: getcves
+      operations:
+      - method: GET
+        name: getcves
+        description: Search CVE records
+        call: nist.getcves
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /cvehistory/2.0
+      name: getcvehistory
+      operations:
+      - method: GET
+        name: getcvehistory
+        description: Retrieve CVE change history
+        call: nist.getcvehistory
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: nist-mcp
+    transport: http
+    description: MCP adapter for NIST NVD CVE API for AI agent use.
+    tools:
+    - name: getcves
+      description: Search CVE records
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nist.getcves
+      with:
+        cveId: tools.cveId
+        cpeName: tools.cpeName
+        cvssV3Severity: tools.cvssV3Severity
+        keywordSearch: tools.keywordSearch
+        pubStartDate: tools.pubStartDate
+        pubEndDate: tools.pubEndDate
+        lastModStartDate: tools.lastModStartDate
+        lastModEndDate: tools.lastModEndDate
+        resultsPerPage: tools.resultsPerPage
+        startIndex: tools.startIndex
+      inputParameters:
+      - name: cveId
+        type: string
+        description: Returns a single CVE record by its CVE identifier.
+      - name: cpeName
+        type: string
+        description: Returns CVE records associated with the supplied CPE 2.3 name.
+      - name: cvssV3Severity
+        type: string
+        description: Filter results by CVSS v3 qualitative severity rating.
+      - name: keywordSearch
+        type: string
+        description: Returns CVE records where the description contains the keyword.
+      - name: pubStartDate
+        type: string
+        description: Filter by CVE publish start date (ISO 8601).
+      - name: pubEndDate
+        type: string
+        description: Filter by CVE publish end date (ISO 8601).
+      - name: lastModStartDate
+        type: string
+        description: Filter by last modified start date (ISO 8601).
+      - name: lastModEndDate
+        type: string
+        description: Filter by last modified end date (ISO 8601).
+      - name: resultsPerPage
+        type: integer
+        description: Number of CVE records to return per page (max 2000).
+      - name: startIndex
+        type: integer
+        description: Zero-based offset into the result set.
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getcvehistory
+      description: Retrieve CVE change history
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: nist.getcvehistory
+      with:
+        cveId: tools.cveId
+        changeStartDate: tools.changeStartDate
+        changeEndDate: tools.changeEndDate
+        resultsPerPage: tools.resultsPerPage
+        startIndex: tools.startIndex
+      inputParameters:
+      - name: cveId
+        type: string
+        description: Returns the change history for a single CVE.
+      - name: changeStartDate
+        type: string
+        description: Filter changes that occurred on or after this date (ISO 8601).
+      - name: changeEndDate
+        type: string
+        description: Filter changes that occurred on or before this date (ISO 8601).
+      - name: resultsPerPage
+        type: integer
+        description: Number of change records to return per page (max 5000).
+      - name: startIndex
+        type: integer
+        description: Zero-based offset into the result set.
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    NIST_TOKEN: NIST_TOKEN
