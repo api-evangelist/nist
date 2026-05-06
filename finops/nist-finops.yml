@@ -1,159 +1,82 @@
 specification: FinOps Framework
 specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: National Institute of Standards and Technology (NIST)
+providerId: nist
+created: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Government
+  - Public Data
+  - Cybersecurity
+description: 'FOCUS-aligned FinOps for NIST: NIST APIs are free public-good services with no commercial
+  billing. The "FinOps" surface is rate-limit budgeting and operational hygiene rather than dollar cost.'
+sources:
+  - https://nvd.nist.gov/developers/start-here
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
   dataSpec: FOCUS
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
-provider: National Institute of Standards and Technology (NIST)
-providerId: nist
-publisherName: National Institute of Standards and Technology (NIST)
-serviceCategory: API
-created: '2026-05-04'
-modified: '2026-05-04'
-tags:
-  - Cybersecurity
-  - Government
-  - Measurements
-  - Research
-  - Scientific Data
-  - Standards
-  - FinOps
-  - Cost Management
-  - FOCUS
-description: FinOps framework definition for the National Institute of Standards and Technology (NIST)
-  API surface. Provides a FOCUS-aligned mapping for cost allocation, usage measurement, and unit-economics
-  reporting across the provider's APIs.
-principles:
-  - name: Visibility
-    description: Make API consumption costs visible to engineering, product, and finance teams in near
-      real-time.
-  - name: Allocation
-    description: Tag every chargeable API call with the consuming team, environment, application, and
-      feature so cost can be allocated.
-  - name: Optimization
-    description: Continuously evaluate request patterns, caching, batching, and tier selection to reduce
-      cost per useful unit of work.
-  - name: Accountability
-    description: Establish budget owners and chargeback or showback flows for each consuming team.
-domains:
-  - name: Understand Usage and Cost
-    capabilities:
-      - Data Ingestion
-      - Allocation
-      - Reporting and Analytics
-      - Anomaly Management
-  - name: Quantify Business Value
-    capabilities:
-      - Planning and Estimating
-      - Forecasting
-      - Budgeting
-      - Benchmarking
-      - Unit Economics
-  - name: Optimize Usage and Cost
-    capabilities:
-      - Architecting for Cloud
-      - Rate Optimization
-      - Workload Optimization
-      - Cloud Sustainability
-      - Licensing and SaaS
-  - name: Manage the FinOps Practice
-    capabilities:
-      - FinOps Practice Operations
-      - FinOps Education and Enablement
-      - Invoicing and Chargeback
-      - Onboarding Workloads
-      - Intersecting Disciplines
+publisherName: U.S. National Institute of Standards and Technology
+serviceCategory: Government Open Data
 billingModel:
-  pricingCategory: Usage-Based
-  billingFrequency: Monthly
+  pricingCategory: Free Public Service
+  billingFrequency: None
   billingCurrency: USD
-  chargeCategories:
-    - Usage
-    - Purchase
-    - Tax
-    - Credit
-    - Adjustment
-  chargeFrequency: Recurring
+  chargeCategories: []
 focusColumns:
-  ServiceName: National Institute of Standards and Technology (NIST)
-  ServiceCategory: Developer Tools / API
-  ProviderName: National Institute of Standards and Technology (NIST)
-  PublisherName: National Institute of Standards and Technology (NIST)
-  InvoiceIssuerName: National Institute of Standards and Technology (NIST)
-  PricingCategory: Usage-Based
-  PricingUnit: request
+  ServiceName: NIST Public APIs
+  ServiceCategory: Government Data
+  ServiceSubcategory: Vulnerability + Standards Data
+  ProviderName: NIST
+  PublisherName: U.S. National Institute of Standards and Technology
+  InvoiceIssuerName: N/A (free)
   BillingCurrency: USD
-  ChargeCategory: Usage
+  PricingCategory: Free
 meters:
-  - name: api_requests
-    description: Count of billable API requests
+  - name: nvd_api_requests
+    description: Calls to the NVD REST API (rate-limited, not billed).
     unit: request
     aggregation: sum
     dimensions:
-      - api
+      - api_key
       - endpoint
-      - tier
-      - region
-      - consumer
-  - name: data_egress
-    description: Bytes returned over the network in API responses
-    unit: GB
+  - name: nvd_records_synced
+    description: CVE records ingested via paginated NVD sync.
+    unit: record
     aggregation: sum
     dimensions:
-      - api
-      - region
-      - consumer
-  - name: compute_seconds
-    description: Server-side compute consumed by the request, where applicable
-    unit: second
+      - feed
+  - name: chemistry_webbook_requests
+    description: Calls to NIST Chemistry WebBook API.
+    unit: request
     aggregation: sum
     dimensions:
-      - api
-      - endpoint
-      - tier
-apis:
-  - name: NIST National Vulnerability Database (NVD) API
-    baseURL: https://services.nvd.nist.gov/rest/json
-    tags:
-      - CVE
-      - Cybersecurity
-      - Security
-      - Vulnerabilities
-    serviceName: NIST National Vulnerability Database (NVD) API
-    serviceCategory: API
-  - name: NIST Chemistry WebBook API
-    baseURL: https://webbook.nist.gov/cgi
-    tags:
-      - Chemistry
-      - Physical Properties
-      - Scientific Data
-    serviceName: NIST Chemistry WebBook API
-    serviceCategory: API
-  - name: NIST Data Gateway
-    baseURL: https://data.nist.gov
-    tags:
-      - Open Data
-      - Research Data
-      - Scientific Data
-    serviceName: NIST Data Gateway
-    serviceCategory: API
-  - name: NIST Time API
-    baseURL: ''
-    tags:
-      - Standards
-      - Synchronization
-      - Time
-    serviceName: NIST Time API
-    serviceCategory: API
-unitEconomics:
-  - name: Cost per 1K Requests
-    metric: billed_cost / (api_requests / 1000)
-    target: TBD
-  - name: Cost per Active Consumer
-    metric: billed_cost / active_consumers
-    target: TBD
+      - dataset
+  - name: time_service_queries
+    description: NIST Internet Time Service queries (NTP, daytime).
+    unit: query
+    aggregation: sum
+    dimensions:
+      - protocol
+principles:
+  - name: Visibility
+    description: Track per-key request counts client-side; NIST does not expose a usage dashboard. Log
+      response codes (200/403) and align to the 30-second rolling window.
+  - name: Allocation
+    description: Issue separate API keys per consuming application or environment so quota usage can
+      be attributed and one team's bug does not starve another.
+  - name: Optimization
+    description: Cache NVD CVE data locally and use lastModStartDate windowed sync; avoid re-fetching
+      static records. Honor the 6-second inter-request sleep to avoid 403s and unnecessary retries.
+  - name: Accountability
+    description: Designate a public-data steward per consuming team responsible for honoring the NIST
+      Terms of Use, key rotation, and uptime against the public quota.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

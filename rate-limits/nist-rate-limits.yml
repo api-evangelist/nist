@@ -4,102 +4,55 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: National Institute of Standards and Technology (NIST)
 providerId: nist
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-05-05'
+reconciled: true
 tags:
+  - Rate Limiting
   - Cybersecurity
   - Government
-  - Measurements
-  - Research
-  - Scientific Data
-  - Standards
-  - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the National Institute of Standards and Technology
-  (NIST) API surface. Captures per-tier quotas, burst behavior, response signaling, and recovery semantics.
-  Defaults are scaffold values to be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
+  - Public Data
+description: NIST publishes explicit rate limits for the National Vulnerability Database (NVD) API. Anonymous
+  callers get 5 requests per 30-second rolling window; callers with a free API key get 50 requests per
+  30-second rolling window. Other NIST APIs (NIST Chemistry WebBook, Internet Time Service) do not document
+  per-key limits but are subject to firewall-level DOS protection. NIST recommends a 6-second sleep between
+  requests to stay within compliance.
+sources:
+  - https://nvd.nist.gov/developers/start-here
+  - https://nvd.nist.gov/developers
 responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
+  throttled: 403
+  forbidden: 403
 limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - NIST National Vulnerability Database (NVD) API
-      - NIST Chemistry WebBook API
-      - NIST Data Gateway
-      - NIST Time API
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - NIST National Vulnerability Database (NVD) API
-      - NIST Chemistry WebBook API
-      - NIST Data Gateway
-      - NIST Time API
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - NIST National Vulnerability Database (NVD) API
-      - NIST Chemistry WebBook API
-      - NIST Data Gateway
-      - NIST Time API
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - NIST National Vulnerability Database (NVD) API
-      - NIST Chemistry WebBook API
-      - NIST Data Gateway
-      - NIST Time API
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - NIST National Vulnerability Database (NVD) API
-      - NIST Chemistry WebBook API
-      - NIST Data Gateway
-      - NIST Time API
+  - name: NVD API — Anonymous
+    scope: IP
+    metric: requests_per_30_seconds
+    limit: 5
+    timeFrame: second
+    notes: 30-second rolling window. Recommended 6-second sleep between requests.
+  - name: NVD API — API Key
+    scope: api_key
+    metric: requests_per_30_seconds
+    limit: 50
+    timeFrame: second
+    notes: 30-second rolling window. 10x increase over anonymous.
+  - name: Other NIST APIs (Chemistry WebBook, Time Service, etc.)
+    scope: IP
+    metric: requests_per_second
+    limit: see firewall fair-use policy
+    notes: No published per-key RPS; firewall enforces DOS protection.
 policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+  - name: 6-second sleep recommendation
+    description: NIST recommends sleeping ~6 seconds between requests so legitimate requests are not
+      blocked by firewall DOS protection.
+  - name: Free API key registration
+    description: API keys are free and obtained via the NVD developer portal — request, accept Terms
+      of Use, and activate via email link.
+  - name: Firewall-level enforcement
+    description: NIST firewall rules apply at the perimeter; 403 responses indicate firewall throttling
+      rather than application-level 429.
+  - name: Spread queries
+    description: For full NVD ingest, paginate with resultsPerPage=2000 and use lastModStartDate / lastModEndDate
+      windowed sync rather than re-querying the full dataset.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
