@@ -1,0 +1,134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NIST NVD CVE API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search CVE records",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+        "params": [
+          {
+            "name": "cveId",
+            "value": "",
+            "type": "query",
+            "description": "Returns a single CVE record by its CVE identifier."
+          },
+          {
+            "name": "cpeName",
+            "value": "",
+            "type": "query",
+            "description": "Returns CVE records associated with the supplied CPE 2.3 name."
+          },
+          {
+            "name": "cvssV3Severity",
+            "value": "",
+            "type": "query",
+            "description": "Filter results by CVSS v3 qualitative severity rating."
+          },
+          {
+            "name": "keywordSearch",
+            "value": "",
+            "type": "query",
+            "description": "Returns CVE records where the description contains the keyword."
+          },
+          {
+            "name": "pubStartDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter by CVE publish start date (ISO 8601)."
+          },
+          {
+            "name": "pubEndDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter by CVE publish end date (ISO 8601)."
+          },
+          {
+            "name": "lastModStartDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter by last modified start date (ISO 8601)."
+          },
+          {
+            "name": "lastModEndDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter by last modified end date (ISO 8601)."
+          },
+          {
+            "name": "resultsPerPage",
+            "value": "",
+            "type": "query",
+            "description": "Number of CVE records to return per page (max 2000)."
+          },
+          {
+            "name": "startIndex",
+            "value": "",
+            "type": "query",
+            "description": "Zero-based offset into the result set."
+          }
+        ]
+      },
+      "docs": "Returns a paginated list of CVE records that match the supplied filter parameters. Supports filters by CVE ID, keyword, CPE, CVSS metrics, publication and modification dates."
+    },
+    {
+      "info": {
+        "name": "Retrieve CVE change history",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://services.nvd.nist.gov/rest/json/cvehistory/2.0",
+        "params": [
+          {
+            "name": "cveId",
+            "value": "",
+            "type": "query",
+            "description": "Returns the change history for a single CVE."
+          },
+          {
+            "name": "changeStartDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter changes that occurred on or after this date (ISO 8601)."
+          },
+          {
+            "name": "changeEndDate",
+            "value": "",
+            "type": "query",
+            "description": "Filter changes that occurred on or before this date (ISO 8601)."
+          },
+          {
+            "name": "resultsPerPage",
+            "value": "",
+            "type": "query",
+            "description": "Number of change records to return per page (max 5000)."
+          },
+          {
+            "name": "startIndex",
+            "value": "",
+            "type": "query",
+            "description": "Zero-based offset into the result set."
+          }
+        ]
+      },
+      "docs": "Returns the change history of CVE records, including modifications to descriptions, references, configurations, and CVSS metrics."
+    }
+  ],
+  "bundled": true
+}
