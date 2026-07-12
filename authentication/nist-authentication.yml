@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/nist-nvd-cve-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  parameter: apiKey
+  description: Optional API key obtained from https://nvd.nist.gov/developers/request-an-api-key.
+    Increases rate limits.
+  sources:
+  - openapi/nist-nvd-cve-openapi.yml

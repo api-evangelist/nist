@@ -83,3 +83,11 @@ common:
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+
+common:
+  - type: DomainSecurity
+    url: security/nist-domain-security.yml
+  - type: Authentication
+    url: authentication/nist-authentication.yml
+  - url: https://www.nist.gov/news-events/news/rss.xml
+    type: Blog
