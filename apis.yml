@@ -85,6 +85,8 @@ maintainers:
     email: kin@apievangelist.com
 
 common:
+  - type: AgenticAccess
+    url: agentic-access/nist-agentic-access.yml
   - type: DomainSecurity
     url: security/nist-domain-security.yml
   - type: Authentication
