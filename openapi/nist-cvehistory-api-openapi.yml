@@ -1,0 +1,96 @@
+openapi: 3.0.3
+info:
+  title: NIST NVD CVE Cvehistory API
+  description: The National Vulnerability Database (NVD) CVE API provides programmatic access to CVE records, CVSS metrics, weakness (CWE) data, and configuration information for security vulnerabilities.
+  version: '2.0'
+  contact:
+    name: NIST National Vulnerability Database
+    url: https://nvd.nist.gov/developers
+  license:
+    name: Public Domain
+servers:
+- url: https://services.nvd.nist.gov/rest/json
+  description: NVD production REST endpoint
+security:
+- apiKey: []
+tags:
+- name: Cvehistory
+paths:
+  /cvehistory/2.0:
+    get:
+      summary: Retrieve CVE change history
+      description: Returns the change history of CVE records, including modifications to descriptions, references, configurations, and CVSS metrics.
+      operationId: getCveHistory
+      parameters:
+      - name: cveId
+        in: query
+        description: Returns the change history for a single CVE.
+        required: false
+        schema:
+          type: string
+      - name: changeStartDate
+        in: query
+        description: Filter changes that occurred on or after this date (ISO 8601).
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: changeEndDate
+        in: query
+        description: Filter changes that occurred on or before this date (ISO 8601).
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: resultsPerPage
+        in: query
+        description: Number of change records to return per page (max 5000).
+        required: false
+        schema:
+          type: integer
+          default: 5000
+          maximum: 5000
+      - name: startIndex
+        in: query
+        description: Zero-based offset into the result set.
+        required: false
+        schema:
+          type: integer
+          default: 0
+      responses:
+        '200':
+          description: Paginated CVE change history response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CveHistoryResponse'
+      tags:
+      - Cvehistory
+components:
+  schemas:
+    CveHistoryResponse:
+      type: object
+      properties:
+        resultsPerPage:
+          type: integer
+        startIndex:
+          type: integer
+        totalResults:
+          type: integer
+        format:
+          type: string
+        version:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        cveChanges:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: apiKey
+      description: Optional API key obtained from https://nvd.nist.gov/developers/request-an-api-key. Increases rate limits.
