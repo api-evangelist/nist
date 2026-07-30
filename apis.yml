@@ -4,7 +4,20 @@ description: >-
   APIs provided by the National Institute of Standards and Technology for accessing scientific and technical data,
   standards, and research information including vulnerability databases, chemistry data, and time services.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nist.png
 tags:
   - Cybersecurity
   - Government
@@ -17,60 +30,73 @@ created: '2024-01-01'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: nist:nist-nvd-api
-    name: NIST National Vulnerability Database (NVD) API
-    description: >-
-      Provides programmatic access to the National Vulnerability Database, including CVE information, vulnerability
-      metrics, and security advisories.
-    humanURL: https://nvd.nist.gov/developers
-    baseURL: https://services.nvd.nist.gov/rest/json
-    tags:
-      - CVE
-      - Cybersecurity
-      - Security
-      - Vulnerabilities
-    properties:
-      - type: Documentation
-        url: https://nvd.nist.gov/developers/vulnerabilities
-      - type: Authentication
-        url: https://nvd.nist.gov/developers/request-an-api-key
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/openapi/nist-nvd-cve-openapi.yml
-  - aid: nist:nist-chemistry-webbook-api
-    name: NIST Chemistry WebBook API
-    description: Access to chemical and physical property data for thousands of chemical species.
-    humanURL: https://webbook.nist.gov/chemistry/
-    baseURL: https://webbook.nist.gov/cgi
-    tags:
-      - Chemistry
-      - Physical Properties
-      - Scientific Data
-    properties:
-      - type: Documentation
-        url: https://webbook.nist.gov/chemistry/form-ser/
-  - aid: nist:nist-data-gateway
-    name: NIST Data Gateway
-    description: Provides access to NIST's scientific and technical databases across multiple domains.
-    humanURL: https://data.nist.gov
-    baseURL: https://data.nist.gov
-    tags:
-      - Open Data
-      - Research Data
-      - Scientific Data
-    properties:
-      - type: Documentation
-        url: https://data.nist.gov/sdp/#/
-  - aid: nist:nist-time-api
-    name: NIST Time API
-    description: Provides access to official NIST time services for time synchronization.
-    humanURL: https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
-    tags:
-      - Standards
-      - Synchronization
-      - Time
-    properties:
-      - type: Documentation
-        url: https://tf.nist.gov/tf-cgi/servers.cgi
+- aid: nist:nist-chemistry-webbook-api
+  name: NIST Chemistry WebBook API
+  description: Access to chemical and physical property data for thousands of chemical species.
+  humanURL: https://webbook.nist.gov/chemistry/
+  baseURL: https://webbook.nist.gov/cgi
+  tags:
+  - Chemistry
+  - Physical Properties
+  - Scientific Data
+  properties:
+  - type: Documentation
+    url: https://webbook.nist.gov/chemistry/form-ser/
+- aid: nist:nist-data-gateway
+  name: NIST Data Gateway
+  description: Provides access to NIST's scientific and technical databases across multiple domains.
+  humanURL: https://data.nist.gov
+  baseURL: https://data.nist.gov
+  tags:
+  - Open Data
+  - Research Data
+  - Scientific Data
+  properties:
+  - type: Documentation
+    url: https://data.nist.gov/sdp/#/
+- aid: nist:nist-time-api
+  name: NIST Time API
+  description: Provides access to official NIST time services for time synchronization.
+  humanURL: >-
+    https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
+  tags:
+  - Standards
+  - Synchronization
+  - Time
+  properties:
+  - type: Documentation
+    url: https://tf.nist.gov/tf-cgi/servers.cgi
+- aid: nist:nist-cvehistory-api
+  name: National Institute of Standards and Technology (NIST) Cvehistory API
+  description: >-
+    The Cvehistory API from National Institute of Standards and Technology (NIST) — 1 operation(s) for
+    cvehistory.
+  humanURL: https://nvd.nist.gov/developers
+  baseURL: https://services.nvd.nist.gov/rest/json
+  tags:
+  - Cvehistory
+  properties:
+  - type: OpenAPI
+    url: openapi/nist-cvehistory-api-openapi.yml
+  - type: Documentation
+    url: https://nvd.nist.gov/developers/vulnerabilities
+  - type: Authentication
+    url: https://nvd.nist.gov/developers/request-an-api-key
+- aid: nist:nist-cves-api
+  name: National Institute of Standards and Technology (NIST) Cves API
+  description: >-
+    The Cves API from National Institute of Standards and Technology (NIST) — 1 operation(s) for cves.
+  humanURL: https://nvd.nist.gov/developers
+  baseURL: https://services.nvd.nist.gov/rest/json
+  tags:
+  - Cves
+  properties:
+  - type: OpenAPI
+    url: openapi/nist-cves-api-openapi.yml
+  - type: Documentation
+    url: https://nvd.nist.gov/developers/vulnerabilities
+  - type: Authentication
+    url: https://nvd.nist.gov/developers/request-an-api-key
 common:
   - type: GitHubOrganization
     url: https://github.com/usnistgov
