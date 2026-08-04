@@ -1,0 +1,16 @@
+{
+  "provider": "nist",
+  "sources": [
+    "nist-cvehistory-api-openapi.yml",
+    "nist-cves-api-openapi.yml"
+  ],
+  "outputs": [
+    "nist-cvehistory-api-openapi.yml",
+    "nist-cves-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
