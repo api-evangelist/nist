@@ -1,0 +1,393 @@
+{
+  "item": [
+    {
+      "id": "f47e85f8-6192-4015-ac9d-aafbb5c37507",
+      "name": "Cves",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "45131ff8-89eb-48c3-9d70-9fd7f1717363",
+          "name": "Search CVE records",
+          "request": {
+            "name": "Search CVE records",
+            "description": {
+              "content": "Returns a paginated list of CVE records that match the supplied filter parameters. Supports filters by CVE ID, keyword, CPE, CVSS metrics, publication and modification dates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cves",
+                "2.0"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cveId",
+                  "value": "<string>",
+                  "description": "Returns a single CVE record by its CVE identifier."
+                },
+                {
+                  "disabled": false,
+                  "key": "cpeName",
+                  "value": "<string>",
+                  "description": "Returns CVE records associated with the supplied CPE 2.3 name."
+                },
+                {
+                  "disabled": false,
+                  "key": "cvssV3Severity",
+                  "value": "<string>",
+                  "description": "Filter results by CVSS v3 qualitative severity rating."
+                },
+                {
+                  "disabled": false,
+                  "key": "keywordSearch",
+                  "value": "<string>",
+                  "description": "Returns CVE records where the description contains the keyword."
+                },
+                {
+                  "disabled": false,
+                  "key": "pubStartDate",
+                  "value": "<dateTime>",
+                  "description": "Filter by CVE publish start date (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "pubEndDate",
+                  "value": "<dateTime>",
+                  "description": "Filter by CVE publish end date (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastModStartDate",
+                  "value": "<dateTime>",
+                  "description": "Filter by last modified start date (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "lastModEndDate",
+                  "value": "<dateTime>",
+                  "description": "Filter by last modified end date (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resultsPerPage",
+                  "value": "2000",
+                  "description": "Number of CVE records to return per page (max 2000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "0",
+                  "description": "Zero-based offset into the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ecb6e5a8-3191-4c6d-a650-f4bdd36e3fa0",
+              "name": "Paginated CVE response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cves",
+                    "2.0"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cveId",
+                      "value": "CVE-2023-1234"
+                    },
+                    {
+                      "key": "cpeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cvssV3Severity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywordSearch",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pubStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pubEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "lastModStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "lastModEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "resultsPerPage",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resultsPerPage\": 4646,\n  \"startIndex\": 1724,\n  \"totalResults\": 9826,\n  \"format\": \"string\",\n  \"version\": \"string\",\n  \"timestamp\": \"2006-12-23T14:35:15.006Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4c2933a-a84e-4a3f-bb26-72f785d9dccb",
+              "name": "Request denied (rate-limited or invalid parameters).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cves",
+                    "2.0"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cveId",
+                      "value": "CVE-2023-1234"
+                    },
+                    {
+                      "key": "cpeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cvssV3Severity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywordSearch",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pubStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pubEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "lastModStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "lastModEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "resultsPerPage",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "40e0bf76-cc5e-4cc9-88f4-630ed5b337dc",
+              "name": "CVE not found.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cves",
+                    "2.0"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cveId",
+                      "value": "CVE-2023-1234"
+                    },
+                    {
+                      "key": "cpeName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "cvssV3Severity",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "keywordSearch",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pubStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "pubEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "lastModStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "lastModEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "resultsPerPage",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apiKey",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://services.nvd.nist.gov/rest/json",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "afe9f97c-a7d4-452c-9b1f-82a5206d8358",
+    "name": "NIST NVD CVE Cvehistory Cves API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The National Vulnerability Database (NVD) CVE API provides programmatic access to CVE records, CVSS metrics, weakness (CWE) data, and configuration information for security vulnerabilities.\n\nContact Support:\n Name: NIST National Vulnerability Database",
+      "type": "text/plain"
+    }
+  }
+}

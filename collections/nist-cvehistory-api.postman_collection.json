@@ -1,0 +1,181 @@
+{
+  "item": [
+    {
+      "id": "1d1c1330-f20f-4428-818c-8b44c8b230d1",
+      "name": "Cvehistory",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "163d9b74-36d2-449d-a7c2-d45c2d0bbec2",
+          "name": "Retrieve CVE change history",
+          "request": {
+            "name": "Retrieve CVE change history",
+            "description": {
+              "content": "Returns the change history of CVE records, including modifications to descriptions, references, configurations, and CVSS metrics.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "cvehistory",
+                "2.0"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "cveId",
+                  "value": "<string>",
+                  "description": "Returns the change history for a single CVE."
+                },
+                {
+                  "disabled": false,
+                  "key": "changeStartDate",
+                  "value": "<dateTime>",
+                  "description": "Filter changes that occurred on or after this date (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "changeEndDate",
+                  "value": "<dateTime>",
+                  "description": "Filter changes that occurred on or before this date (ISO 8601)."
+                },
+                {
+                  "disabled": false,
+                  "key": "resultsPerPage",
+                  "value": "5000",
+                  "description": "Number of change records to return per page (max 5000)."
+                },
+                {
+                  "disabled": false,
+                  "key": "startIndex",
+                  "value": "0",
+                  "description": "Zero-based offset into the result set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "59f812de-3d38-4609-be4c-cf7225859363",
+              "name": "Paginated CVE change history response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cvehistory",
+                    "2.0"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "cveId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "changeStartDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "changeEndDate",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "resultsPerPage",
+                      "value": "5000"
+                    },
+                    {
+                      "key": "startIndex",
+                      "value": "0"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "apiKey",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"resultsPerPage\": 5363,\n  \"startIndex\": 167,\n  \"totalResults\": 8620,\n  \"format\": \"string\",\n  \"version\": \"string\",\n  \"timestamp\": \"2002-01-24T10:51:14.503Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://services.nvd.nist.gov/rest/json",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "apiKey"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5ef48c0d-b3b9-4c5d-8441-8c9edf4aada1",
+    "name": "NIST NVD CVE Cvehistory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The National Vulnerability Database (NVD) CVE API provides programmatic access to CVE records, CVSS metrics, weakness (CWE) data, and configuration information for security vulnerabilities.\n\nContact Support:\n Name: NIST National Vulnerability Database",
+      "type": "text/plain"
+    }
+  }
+}

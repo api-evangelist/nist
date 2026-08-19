@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "NIST NVD CVE Cvehistory API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "apiKey",
+      "value": "{{apiKey}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Cvehistory",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve CVE change history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://services.nvd.nist.gov/rest/json/cvehistory/2.0",
+            "params": [
+              {
+                "name": "cveId",
+                "value": "",
+                "type": "query",
+                "description": "Returns the change history for a single CVE."
+              },
+              {
+                "name": "changeStartDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter changes that occurred on or after this date (ISO 8601)."
+              },
+              {
+                "name": "changeEndDate",
+                "value": "",
+                "type": "query",
+                "description": "Filter changes that occurred on or before this date (ISO 8601)."
+              },
+              {
+                "name": "resultsPerPage",
+                "value": "",
+                "type": "query",
+                "description": "Number of change records to return per page (max 5000)."
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset into the result set."
+              }
+            ]
+          },
+          "docs": "Returns the change history of CVE records, including modifications to descriptions, references, configurations, and CVSS metrics."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
