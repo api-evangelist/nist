@@ -74,6 +74,8 @@ apis:
   humanURL: https://nvd.nist.gov/developers
   baseURL: https://services.nvd.nist.gov/rest/json
   tags:
+  - CVE History
+  tags_raw:
   - Cvehistory
   properties:
   - type: OpenAPI
@@ -89,6 +91,8 @@ apis:
   humanURL: https://nvd.nist.gov/developers
   baseURL: https://services.nvd.nist.gov/rest/json
   tags:
+  - CVEs
+  tags_raw:
   - Cves
   properties:
   - type: OpenAPI
