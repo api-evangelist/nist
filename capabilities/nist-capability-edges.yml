@@ -1,0 +1,35 @@
+slug: nist
+provider: National Institute of Standards and Technology (NIST)
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Education
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Cves
+  spec_file: nist-cves-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.9
+  evidence: GET /cves/2.0  getCves  Search CVE records; "CVE records, CVSS metrics, weakness (CWE) data,
+    and configuration information for security vulnerabilities"
+  reason: Search over the National Vulnerability Database CVE corpus — directly serves vulnerability scanning,
+    triage and patching workflows under Cybersecurity Management.
+- tag: Cvehistory
+  spec_file: nist-cvehistory-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.85
+  evidence: GET /cvehistory/2.0  getCveHistory  Retrieve CVE change history — "programmatic access to
+    CVE records, CVSS metrics, weakness (CWE) data"
+  reason: Exposes change history of published vulnerability records with CVSS severity data; this is the
+    data backbone of vulnerability identification and remediation tracking, i.e. Vulnerability Management.
