@@ -85,7 +85,7 @@ apis:
   humanURL: https://nvd.nist.gov/developers
   baseURL: https://services.nvd.nist.gov/rest/json
   tags:
-  - Cvehistory
+  - CVE History
   tags_raw:
   - Cvehistory
   properties:
@@ -102,7 +102,7 @@ apis:
   humanURL: https://nvd.nist.gov/developers
   baseURL: https://services.nvd.nist.gov/rest/json
   tags:
-  - Cves
+  - CVEs
   tags_raw:
   - Cves
   properties:
