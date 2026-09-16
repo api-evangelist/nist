@@ -1,8 +1,8 @@
 aid: nist
 name: National Institute of Standards and Technology (NIST)
-description: >-
-  APIs provided by the National Institute of Standards and Technology for accessing scientific and technical data,
-  standards, and research information including vulnerability databases, chemistry data, and time services.
+description: APIs provided by the National Institute of Standards and Technology for accessing scientific
+  and technical data, standards, and research information including vulnerability databases, chemistry
+  data, and time services.
 type: Index
 deliveryModel:
   model: unknown
@@ -31,15 +31,15 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/nist.png
 tags:
-  - Cybersecurity
-  - Government
-  - Measurements
-  - Research
-  - Scientific Data
-  - Standards
+- Cybersecurity
+- Government
+- Measurements
+- Research
+- Scientific Data
+- Standards
 url: https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/apis.yml
 created: '2024-01-01'
-modified: '2026-05-19'
+modified: '2026-09-16'
 specificationVersion: '0.23'
 apis:
 - aid: nist:nist-chemistry-webbook-api
@@ -69,8 +69,7 @@ apis:
 - aid: nist:nist-time-api
   name: NIST Time API
   description: Provides access to official NIST time services for time synchronization.
-  humanURL: >-
-    https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
+  humanURL: https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
   tags:
   - Standards
   - Synchronization
@@ -80,9 +79,8 @@ apis:
     url: https://tf.nist.gov/tf-cgi/servers.cgi
 - aid: nist:nist-cvehistory-api
   name: National Institute of Standards and Technology (NIST) Cvehistory API
-  description: >-
-    The Cvehistory API from National Institute of Standards and Technology (NIST) — 1 operation(s) for
-    cvehistory.
+  description: The Cvehistory API from National Institute of Standards and Technology (NIST) — 1 operation(s)
+    for cvehistory.
   humanURL: https://nvd.nist.gov/developers
   baseURL: https://services.nvd.nist.gov/rest/json
   tags:
@@ -98,8 +96,8 @@ apis:
     url: https://nvd.nist.gov/developers/request-an-api-key
 - aid: nist:nist-cves-api
   name: National Institute of Standards and Technology (NIST) Cves API
-  description: >-
-    The Cves API from National Institute of Standards and Technology (NIST) — 1 operation(s) for cves.
+  description: The Cves API from National Institute of Standards and Technology (NIST) — 1 operation(s)
+    for cves.
   humanURL: https://nvd.nist.gov/developers
   baseURL: https://services.nvd.nist.gov/rest/json
   tags:
@@ -114,27 +112,16 @@ apis:
   - type: Authentication
     url: https://nvd.nist.gov/developers/request-an-api-key
 common:
-  - type: CapabilityMap
-    url: capabilities/nist-capability-edges.yml
-    name: National Institute of Standards and Technology (NIST) Business Capability Map
-  - type: GitHubOrganization
-    url: https://github.com/usnistgov
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/nist
-  - type: Website
-    url: https://www.nist.gov
-  - type: Documentation
-    url: https://www.nist.gov/services-resources/software
+- type: Website
+  url: https://nist.gov
+- type: AgenticAccess
+  url: agentic-access/nist-agentic-access.yml
+- type: DomainSecurity
+  url: security/nist-domain-security.yml
+- type: Authentication
+  url: authentication/nist-authentication.yml
+- url: https://www.nist.gov/news-events/news/rss.xml
+  type: Blog
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
-
-common:
-  - type: AgenticAccess
-    url: agentic-access/nist-agentic-access.yml
-  - type: DomainSecurity
-    url: security/nist-domain-security.yml
-  - type: Authentication
-    url: authentication/nist-authentication.yml
-  - url: https://www.nist.gov/news-events/news/rss.xml
-    type: Blog
+- FN: Kin Lane
+  email: kin@apievangelist.com
