@@ -69,7 +69,8 @@ apis:
 - aid: nist:nist-time-api
   name: NIST Time API
   description: Provides access to official NIST time services for time synchronization.
-  humanURL: https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
+  humanURL: >-
+    https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its
   tags:
   - Standards
   - Synchronization
@@ -77,36 +78,33 @@ apis:
   properties:
   - type: Documentation
     url: https://tf.nist.gov/tf-cgi/servers.cgi
-- aid: nist:nist-cvehistory-api
-  name: National Institute of Standards and Technology (NIST) Cvehistory API
-  description: The Cvehistory API from National Institute of Standards and Technology (NIST) — 1 operation(s)
-    for cvehistory.
-  humanURL: https://nvd.nist.gov/developers
-  baseURL: https://services.nvd.nist.gov/rest/json
-  tags:
-  - CVE History
-  tags_raw:
-  - Cvehistory
-  properties:
-  - type: OpenAPI
-    url: openapi/nist-cvehistory-api-openapi.yml
-  - type: Documentation
-    url: https://nvd.nist.gov/developers/vulnerabilities
-  - type: Authentication
-    url: https://nvd.nist.gov/developers/request-an-api-key
 - aid: nist:nist-cves-api
   name: National Institute of Standards and Technology (NIST) Cves API
-  description: The Cves API from National Institute of Standards and Technology (NIST) — 1 operation(s)
-    for cves.
-  humanURL: https://nvd.nist.gov/developers
-  baseURL: https://services.nvd.nist.gov/rest/json
+  description: >-
+    The Cves API from National Institute of Standards and Technology (NIST) — 1 operation(s) for cves.
+  humanURL: https://webbook.nist.gov/chemistry/
+  baseURL: https://webbook.nist.gov/cgi
   tags:
-  - CVEs
-  tags_raw:
   - Cves
   properties:
   - type: OpenAPI
     url: openapi/nist-cves-api-openapi.yml
+  - type: Documentation
+    url: https://nvd.nist.gov/developers/vulnerabilities
+  - type: Authentication
+    url: https://nvd.nist.gov/developers/request-an-api-key
+- aid: nist:nist-cve-history-api
+  name: National Institute of Standards and Technology (NIST) CVE History API
+  description: >-
+    The CVE History API from National Institute of Standards and Technology (NIST) — 1 operation(s) for
+    cve history.
+  humanURL: https://webbook.nist.gov/chemistry/
+  baseURL: https://webbook.nist.gov/cgi
+  tags:
+  - CVE History
+  properties:
+  - type: OpenAPI
+    url: openapi/nist-cve-history-api-openapi.yml
   - type: Documentation
     url: https://nvd.nist.gov/developers/vulnerabilities
   - type: Authentication
