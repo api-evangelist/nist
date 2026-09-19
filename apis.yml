@@ -85,6 +85,8 @@ apis:
   humanURL: https://webbook.nist.gov/chemistry/
   baseURL: https://webbook.nist.gov/cgi
   tags:
+  - CVEs
+  tags_raw:
   - Cves
   properties:
   - type: OpenAPI
