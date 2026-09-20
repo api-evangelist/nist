@@ -24,7 +24,8 @@ edges:
   reason: Search over the National Vulnerability Database CVE corpus — directly serves vulnerability scanning,
     triage and patching workflows under Cybersecurity Management.
 - tag: Cvehistory
-  spec_file: nist-cvehistory-api-openapi.yml
+  spec_file: nist-cve-history-api-openapi.yml
+  reanchored_from: nist-cvehistory-api-openapi.yml
   capability_id: BC-620.40
   capability_id_l1: BC-620
   capability_name: Vulnerability Management
