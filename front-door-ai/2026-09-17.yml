@@ -1,0 +1,26 @@
+# Front Door AI Index — nist — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: nist
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: nist.gov
+  final_host: www.nist.gov
+  ownership: inherited
+  owner: nist
+  shares_host_with: null
+  inherited_from: www.nist.gov
+  verdict: scored
+  score: null
+  host_score: 2
+  density: null
+  words: 747
+  tiers:
+    agentic: 0
+    core: 2
+    model: 0
+  ambiguous: 2
+  top_terms:
+    artificial intelligence: 2
+    intelligence: 2
