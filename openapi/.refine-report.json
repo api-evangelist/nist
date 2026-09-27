@@ -1,14 +1,17 @@
 {
   "provider": "nist",
   "sources": [
-    "_original/nist-nvd-cve-openapi.yml"
+    "_original/nist-nvd-cve-openapi.yml",
+    "national-institute-of-standards-and-technology-cpe-api-openapi.yml"
   ],
   "outputs": [
     "nist-cvehistory-api-openapi.yml",
-    "nist-cves-api-openapi.yml"
+    "nist-cves-api-openapi.yml",
+    "nist-cpe-api-openapi.yml"
   ],
   "archived": [
-    "deleted 2 superseded output(s) from the previous generation"
+    "deleted 1 superseded output(s) from the previous generation",
+    "archived openapi/national-institute-of-standards-and-technology-cpe-api-openapi.yml"
   ],
   "errors": [],
   "warnings": [],
@@ -19,11 +22,11 @@
     "nist-nvd-cve-openapi.yml: tagged paths GET /cvehistory/2.0 -> Cvehistory",
     "nist-nvd-cve-openapi.yml: declared missing tag: Cvehistory",
     "nist-nvd-cve-openapi.yml: declared missing tag: Cves",
-    "superseded outputs removed: nist-cv-es-api-openapi.yml, nist-cve-history-api-openapi.yml",
-    "apis.yml register: written (+2 apis, 5 total)"
+    "superseded outputs removed: nist-cve-history-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 6 total)"
   ],
   "skipped": [
-    "nist-cv-es-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "nist-cve-history-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "nist-cve-history-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "nist-cves-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }

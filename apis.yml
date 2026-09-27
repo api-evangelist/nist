@@ -82,8 +82,8 @@ apis:
   name: National Institute of Standards and Technology (NIST) Cves API
   description: >-
     The Cves API from National Institute of Standards and Technology (NIST) — 1 operation(s) for cves.
-  humanURL: https://webbook.nist.gov/chemistry/
-  baseURL: https://webbook.nist.gov/cgi
+  humanURL: https://nvd.nist.gov/developers/vulnerabilities
+  baseURL: https://services.nvd.nist.gov/rest/json
   tags:
   - CVEs
   tags_raw:
@@ -95,6 +95,24 @@ apis:
     url: https://nvd.nist.gov/developers/vulnerabilities
   - type: Authentication
     url: https://nvd.nist.gov/developers/request-an-api-key
+- aid: nist:nist-cpe-api
+  name: National Institute of Standards and Technology (NIST) CPE API
+  description: Common Platform Enumeration
+  humanURL: https://webbook.nist.gov/chemistry/
+  baseURL: https://webbook.nist.gov/cgi
+  tags:
+  - CPE
+  properties:
+  - type: OpenAPI
+    url: openapi/nist-cpe-api-openapi.yml
+  - type: Documentation
+    url: https://nvd.nist.gov/developers/vulnerabilities
+  - type: Authentication
+    url: https://nvd.nist.gov/developers/request-an-api-key
+  - type: Documentation
+    url: https://nvd.nist.gov/developers
+  - type: Documentation
+    url: https://nvd.nist.gov/developers/products
 - aid: nist:nist-cve-history-api
   name: National Institute of Standards and Technology (NIST) CVE History API
   description: >-
@@ -111,6 +129,10 @@ apis:
     url: https://nvd.nist.gov/developers/vulnerabilities
   - type: Authentication
     url: https://nvd.nist.gov/developers/request-an-api-key
+  - type: Documentation
+    url: https://nvd.nist.gov/developers
+  - type: Documentation
+    url: https://nvd.nist.gov/developers/products
 common:
 - type: Website
   url: https://nist.gov
@@ -122,6 +144,12 @@ common:
   url: authentication/nist-authentication.yml
 - url: https://www.nist.gov/news-events/news/rss.xml
   type: Blog
+- type: GitHubOrganization
+  url: https://github.com/usnistgov
+- type: Portal
+  url: https://nvd.nist.gov/developers
+- type: Documentation
+  url: https://nvd.nist.gov/developers/vulnerabilities
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

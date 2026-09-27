@@ -1,0 +1,71 @@
+# x-archived-from: national-institute-of-standards-and-technology-cpe-api-openapi.yml
+# x-archived-on: 2026-09-26
+openapi: 3.2.0
+info:
+  title: NIST National Vulnerability Database (NVD) CPE API
+  description: The National Vulnerability Database (NVD) API, operated by the National Institute of Standards and Technology, provides programmatic access to Common Vulnerabilities and Exposures (CVE) records, CVE change history, and Common Platform Enumeration (CPE) records. The API supports pagination, filtering, and date-range queries for vulnerability and product data.
+  version: 2.0.0
+  contact:
+    name: NIST NVD
+    url: https://nvd.nist.gov/developers
+servers:
+- url: https://services.nvd.nist.gov
+  description: NVD production services
+tags:
+- name: CPE
+  description: Common Platform Enumeration
+paths:
+  /rest/json/cpes/2.0:
+    get:
+      tags:
+      - CPE
+      summary: Search CPE records
+      description: Retrieve Common Platform Enumeration records with optional filters by CPE Name ID, match string, keyword, modification date range, and match criteria identifier.
+      operationId: getCpes
+      parameters:
+      - name: cpeNameId
+        in: query
+        description: Specific CPE record UUID.
+        schema:
+          type: string
+          format: uuid
+      - name: cpeMatchString
+        in: query
+        schema:
+          type: string
+      - name: keywordSearch
+        in: query
+        schema:
+          type: string
+      - name: keywordExactMatch
+        in: query
+        schema:
+          type: boolean
+      - name: lastModStartDate
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: lastModEndDate
+        in: query
+        schema:
+          type: string
+          format: date-time
+      - name: matchCriteriaId
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: resultsPerPage
+        in: query
+        description: Maximum results per page (default and max 10000).
+        schema:
+          type: integer
+          maximum: 10000
+      - name: startIndex
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A paginated CPE records envelope.
