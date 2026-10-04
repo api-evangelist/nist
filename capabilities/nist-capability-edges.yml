@@ -4,6 +4,7 @@ generated_by: planning/capability-mapping/scripts/classify_capabilities.py
 model: claude-opus-5
 frame:
 - Education
+- Software & Technology
 min_confidence: 0.7
 capability_model:
   source: https://github.com/vincentmakes/turbo-ea-capabilities
@@ -11,7 +12,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
 - tag: Cves
   spec_file: nist-cves-api-openapi.yml
@@ -34,3 +35,15 @@ edges:
     CVE records, CVSS metrics, weakness (CWE) data"
   reason: Exposes change history of published vulnerability records with CVSS severity data; this is the
     data backbone of vulnerability identification and remediation tracking, i.e. Vulnerability Management.
+- tag: CPE
+  spec_file: nist-cpe-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.7
+  evidence: The National Vulnerability Database (NVD) API ... provides programmatic access to Common Vulnerabilities
+    and Exposures (CVE) records, CVE change history, and Common Platform Enumeration (CPE) records
+  reason: The surface serves the national vulnerability database; CPE records are the product-identification
+    dictionary used to match assets to vulnerabilities, directly feeding vulnerability scanning and remediation.
+    Confidence held at 0.7 because the CPE tag alone is a product dictionary lookup rather than full vulnerability
+    management.

@@ -134,6 +134,9 @@ apis:
   - type: Documentation
     url: https://nvd.nist.gov/developers/products
 common:
+- type: CapabilityMap
+  url: capabilities/nist-capability-edges.yml
+  name: National Institute of Standards and Technology (NIST) Business Capability Map
 - type: Website
   url: https://nist.gov
 - type: AgenticAccess
