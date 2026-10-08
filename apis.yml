@@ -134,6 +134,12 @@ apis:
   - type: Documentation
     url: https://nvd.nist.gov/developers/products
 common:
+- type: Plans
+  url: plans/nist-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/nist-rate-limits.yml
+- type: FinOps
+  url: finops/nist-finops.yml
 - type: CapabilityMap
   url: capabilities/nist-capability-edges.yml
   name: National Institute of Standards and Technology (NIST) Business Capability Map
