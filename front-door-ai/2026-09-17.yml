@@ -7,14 +7,17 @@ front_door_ai:
   probed_at: '2026-09-17'
   host: nist.gov
   final_host: www.nist.gov
-  ownership: inherited
+  ownership: own
   owner: nist
   shares_host_with: null
-  inherited_from: www.nist.gov
+  inherited_from: null
+  alias_of: www.nist.gov
   verdict: scored
-  score: null
+  score: 2
+  band: 3
+  band_label: light
   host_score: 2
-  density: null
+  density: 2.68
   words: 747
   tiers:
     agentic: 0
