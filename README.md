@@ -1,4 +1,4 @@
-# National Institute of Standards and Technology (NIST) (nist)
+# National Institute of Standards and Technology (NIST)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,114 +66,122 @@
 
 APIs provided by the National Institute of Standards and Technology for accessing scientific and technical data, standards, and research information including vulnerability databases, chemistry data, and time services.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/apis.yml)
+**Areas:** Cybersecurity · Government · Measurements · Research · Scientific Data · Standards
 
-## Scope
+## National Institute of Standards and Technology (NIST) on APIs.io
 
-- **Type:** Index
+Everything profiled for National Institute of Standards and Technology (NIST) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/nist/](https://apis.io/providers/nist/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (6)
 
-- Cybersecurity
-- Government
-- Measurements
-- Research
-- Scientific Data
-- Standards
+- [NIST Chemistry WebBook API](https://apis.io/apis/nist/nist-chemistry-webbook-api/) — Access to chemical and physical property data for thousands of chemical species.
+- [NIST Data Gateway](https://apis.io/apis/nist/nist-data-gateway/) — Provides access to NIST's scientific and technical databases across multiple domains.
+- [NIST Time API](https://apis.io/apis/nist/nist-time-api/) — Provides access to official NIST time services for time synchronization.
+- [National Institute of Standards and Technology (NIST) Cves API](https://apis.io/apis/nist/nist-cves-api/) — The Cves API from National Institute of Standards and Technology (NIST) — 1 operation(s) for cves.
+- [National Institute of Standards and Technology (NIST) CPE API](https://apis.io/apis/nist/nist-cpe-api/) — Common Platform Enumeration
+- [National Institute of Standards and Technology (NIST) CVE History API](https://apis.io/apis/nist/nist-cve-history-api/) — The CVE History API from National Institute of Standards and Technology (NIST) — 1 operation(s) for cve history.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2024-01-01
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### NIST National Vulnerability Database (NVD) API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-Provides programmatic access to the National Vulnerability Database, including CVE information, vulnerability metrics, and security advisories.
+- [Nist Agentic Access](https://apis.io/agentic-access/nist/nist-agentic-access/)
 
-- **Human URL:** [https://nvd.nist.gov/developers](https://nvd.nist.gov/developers)
-- **Base URL:** `https://services.nvd.nist.gov/rest/json`
+#### Collections (3)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- CVE
-- Cybersecurity
-- Security
-- Vulnerabilities
+- [NIST NVD CVE Cvehistory API](https://apis.io/collections/nist/open-nist-cvehistory-api/)
+- [NIST NVD CVE Cvehistory Cves API](https://apis.io/collections/nist/open-nist-cves-api/)
+- [NIST NVD CVE API](https://apis.io/collections/nist/open-nist-nvd-cve/)
 
-#### Properties
+#### Security (2)
 
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Nist Authentication](https://apis.io/security/nist/nist-authentication/)
+- [Nist Domain Security](https://apis.io/security/nist/nist-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Nist Plans Pricing](https://apis.io/plans/nist/nist-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Nist Rate Limits](https://apis.io/rate-limits/nist/nist-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Nist Finops](https://apis.io/finops/nist/nist-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://nist.gov)
 - [Documentation](https://nvd.nist.gov/developers/vulnerabilities)
-- [Authentication](https://nvd.nist.gov/developers/request-an-api-key)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/nist/refs/heads/main/openapi/nist-nvd-cve-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/nist-nvd-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nist-nvd-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Blog](https://www.nist.gov/news-events/news/rss.xml)
+- [GitHub](https://github.com/usnistgov)
 
-### NIST Chemistry WebBook API
+## API Evangelist rating
 
-Access to chemical and physical property data for thousands of chemical species.
+**Kin Score 27.5** — thin · rubric 0.24.0 · scored 2026-10-17
 
-- **Human URL:** [https://webbook.nist.gov/chemistry/](https://webbook.nist.gov/chemistry/)
-- **Base URL:** `https://webbook.nist.gov/cgi`
+| Facet | Score |
+|---|---|
+| Discoverability | 57.1 |
+| Contract quality | 50.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 5.3 |
 
-#### Tags
+**Agent readiness 20.7** — agent-aware
 
-- Chemistry
-- Physical Properties
-- Scientific Data
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-#### Properties
+**Regulatory alignment 11.8** — Government & Public Sector
 
-- [Documentation](https://webbook.nist.gov/chemistry/form-ser/)
-- [Postman Collection](collections/nist-nvd-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nist-nvd-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/nist/](https://apis.io/providers/nist/).
 
-### NIST Data Gateway
+## How this profile is made
 
-Provides access to NIST's scientific and technical databases across multiple domains.
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- **Human URL:** [https://data.nist.gov](https://data.nist.gov)
-- **Base URL:** `https://data.nist.gov`
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for National Institute of Standards and Technology (NIST): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-#### Tags
+## Open an issue
 
-- Open Data
-- Research Data
-- Scientific Data
-
-#### Properties
-
-- [Documentation](https://data.nist.gov/sdp/#/)
-- [Postman Collection](collections/nist-nvd-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nist-nvd-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### NIST Time API
-
-Provides access to official NIST time services for time synchronization.
-
-- **Human URL:** [https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its](https://www.nist.gov/pml/time-and-frequency-division/time-distribution/internet-time-service-its)
-
-#### Tags
-
-- Standards
-- Synchronization
-- Time
-
-#### Properties
-
-- [Documentation](https://tf.nist.gov/tf-cgi/servers.cgi)
-- [Postman Collection](collections/nist-nvd-cve.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/nist-nvd-cve.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/usnistgov)
-- [LinkedIn](https://www.linkedin.com/company/nist)
-- [Website](https://www.nist.gov)
-- [Documentation](https://www.nist.gov/services-resources/software)
-
-## Maintainers
-
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/nist/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
